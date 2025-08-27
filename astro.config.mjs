@@ -1,10 +1,13 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightThemeNext from 'starlight-theme-next'
 
 import react from '@astrojs/react';
 
 export default defineConfig({
+    image: {
+    service: passthroughImageService()
+    },
     integrations: [starlight({
 		customCss: ['./src/styles/selection.css'],
 		plugins: [starlightThemeNext()],
