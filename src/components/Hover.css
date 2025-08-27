@@ -1,0 +1,137 @@
+/* The container helps manage positioning */
+.hover-container {
+  position: relative;
+  display: inline-block;
+  overflow: visible !important;
+}
+
+.prose, .content {
+  overflow: visible !important;
+}
+
+/* The base style for the term text with the gapped underline */
+.hover-trigger {
+  border-bottom: 1px dashed var(--sl-color-accent-high);
+  cursor: help;
+  transition: color 0.2s ease;
+}
+
+/* Style for a term that wasn't found in our data source */
+.hover-trigger--error {
+  border-bottom-color: var(--sl-color-red);
+  color: var(--sl-color-red);
+}
+
+/* The main pop-up card - Base styles */
+.hover-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* <-- only horizontal centering */
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  padding: 16px;
+  background-color: var(--sl-color-gray-6);
+  border-radius: 8px;
+  border: 1px solid var(--sl-color-gray-5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  animation: fadeIn 0.15s ease-out;
+  top: auto;
+  bottom: auto;
+}
+
+/* NEW: Modifier class to position the card ABOVE the text */
+.hover-card--top {
+  bottom: 100%;
+  margin-bottom: 12px;
+}
+
+/* NEW: Modifier class to position the card BELOW the text */
+.hover-card--bottom {
+  top: 100%;
+  margin-top: 12px;
+}
+
+/* The arrow's base style */
+.hover-card::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+}
+
+/* Arrow for the card when it's ABOVE (pointing down) */
+.hover-card--top::after {
+  top: 100%;
+  border-color: var(--sl-color-gray-5) transparent transparent transparent;
+}
+
+/* Arrow for the card when it's BELOW (pointing up) */
+.hover-card--bottom::after {
+  bottom: 100%;
+  border-color: transparent transparent var(--sl-color-gray-5) transparent;
+}
+
+/* -- Unchanged styles from here down -- */
+
+.hover-card__title {
+  font-size: 1.1em;
+  color: var(--sl-color-white);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hover-card__description {
+  margin: 0 0 12px 0;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: var(--sl-color-gray-2);
+}
+
+.hover-card__code {
+  background-color: var(--sl-color-gray-7);
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, 0); }
+  to { opacity: 1; /* Final transform is set by the --top or --bottom class */ }
+}
+
+.hover-card__link {
+  display: block;
+  margin-top: 12px;
+  text-align: right;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hover-card__link:hover {
+  text-decoration: underline;
+}
+
+.hover-card__link::after {
+  content: ' →';
+}
+
+.hover-container--inline-code {
+  font-family: var(--sl-font-mono);
+  background-color: var(--sl-color-gray-6);
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+}
+
+.hover-container--inline-code .hover-trigger {
+  border-bottom-style: dotted;
+  line-height: 1;
+}
+

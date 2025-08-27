@@ -1,0 +1,49 @@
+---
+title: 🚀 Introduction
+slug: introduction
+---
+
+import Hover from '../../../components/Hover.tsx';
+
+:::tip[W.I.P.]
+This guide is a work-in-progress, crafted in my free time. Your patience and feedback are appreciated! Feel free to contribute on [GitHub](https://github.com/CyntexMore/vulkan-for-beginners).
+:::
+
+[Version](/versioning): `0.1`.
+
+## Why another guide?
+
+Because all existing guides are either incomplete, outdated, or assume you have 5 PhDs. Vulkan is notoriously difficult in itself, but when you're starting out, you have to suffer on four fronts all at once: the guide, the build system, *your* system, if you're not using Ubuntu LTS or Windows, and Vulkan itself.
+
+Some of us here are using NixOS with NeoVim, or Arch with CLion. And no guides account for these systems.
+
+They often also just throw terms and classes at you and expect you to understand them, as if graphics programming, especially 3D graphics programming, is not one of the hardest things in existence.
+
+Most of them also expect you to have prior experience with non-fixed pipeline OpenGL and math. That's like expecting someone to know how to build a carburetor, before they can touch an EV's engine.
+
+This guide aims for a better developer experience than others.
+
+## How to use this site?
+
+This site was built with a modern tech stack: [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/), with the [Starlight Next.js theme](https://starlight-theme-next.trueberryless.org/).
+
+I aimed for a JIT (Just-in-Time) learning process: no walls of information about what a thing *will* do, but what it *does* when it's relevant.
+
+Codeblocks will look like this:
+
+```diff lang="cpp" title="example.cpp" {2}
+#define GLFW_INCLUDE_VULKAN 
+#include <GLFW/glfw3.h>           /* Highlighted*/
+
+- constexpr uint32_t WIDTH = 1600; /* Removed */
+- constexpr uint32_t HEIGHT = 900; /* Removed */
++ constexpr uint32_t WIDTH = 800;  /* Added */
++ constexpr uint32_t HEIGHT = 600; /* Added */
+```
+
+In-line documentation is done like <Hover term="this" inlineCode client:visible />. Just hover that text. If something is missing, it will be <Hover term="red" />. Inline `code` looks a bit different, just to make them easy to differentiate.
+
+## Ready?
+
+You can move on to the [Getting Started](/getting-started/overview) part if everything's clear.
+

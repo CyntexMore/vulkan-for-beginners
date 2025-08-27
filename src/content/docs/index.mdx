@@ -1,0 +1,33 @@
+---
+title: Vulkan for Beginners 
+description: A friendly guide for people starting out with Vulkan.
+template: splash
+hero:
+  tagline: A friendly guide for people starting out with Vulkan.
+  image:
+    file: ../../assets/ns.png
+  actions:
+    - text: Introduction
+      link: /introduction
+      icon: right-arrow
+    - text: Vulkan Documentation
+      link: https://docs.vulkan.org/spec/latest/index.html
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Getting Started
+
+<CardGrid stagger>
+	<Card title="Check out the Vulkan Documentation" icon="star">
+    Check out the [Vulkan Documentation](https://docs.vulkan.org/spec/latest/index.html) for in-depth information.
+	</Card>
+	<Card title="Look at other guides" icon="open-book">
+    Take a look at [vkguide.dev](https://vkguide.dev/) and [vulkan-tutorial.com](https://vulkan-tutorial.com/). I'm not an expert, so learning from multiple sources is a good idea.
+	</Card>
+	<Card title="Look at examples" icon="github">
+    Look at C++ [code examples](https://github.com/SaschaWillems/Vulkan) with the Vulkan API.
+	</Card>
+</CardGrid>

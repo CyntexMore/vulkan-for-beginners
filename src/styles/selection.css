@@ -1,0 +1,9 @@
+::selection {
+  background-color: rgba(100, 150, 255, 0.4);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(100, 150, 255, 0.4);
+  color: inherit;
+}

@@ -1,0 +1,29 @@
+---
+title: Overview
+slug: getting-started/overview
+---
+
+import Hover from '../../../components/Hover.tsx';
+
+This guide doesn't expect that you have a PhD in math, you've read ten books about graphics programming, or that you've used [OpenGL](https://www.opengl.org/) before. While these are nice-to-haves, they aren't expected from you. While this isn't a requirement either, a previous background with [raylib](https://www.raylib.com/) or [Blender](https://www.blender.org/) is a nice to have, just to have a mental model of 3D perspective. If you feel like you already understand it, no need to tap into it. We won't be using any highly advanced C++ features, but a basic knowledge about <Hover term="class" client:visible />es and <Hover term="RAII" client:visible /> is only benefitial. If you feel like you don't understand C++ enough, it is highly recommended that you check out [learncpp.com](https://www.learncpp.com/).
+
+In this guide, we will build a solar system simulation in Vulkan. An ambitious, but every achieveable goal.
+
+## What will we be using?
+
+:::note
+Don't worry, you won't be setting anything up yet. That's for the next chapter, just lean back and read for now.
+:::
+
+Vulkan is both modern and outdated at the same time. By this, I mean that the original C API is... very ancient, but Vulkan itself is "modern" in a sense (features, etc.).
+
+There are a lot of ways to write Vulkan. There are bindings for a ton of languages, such as Zig, Rust, Golang, so on. But we are going to do this the "original way." In the future, this guide might include multi-lingual examples in the future to lean into that "Vulkan for everyone" agenda.
+
+To somewhat mitigate this, we will be using the [Vulkan-Hpp](https://github.com/KhronosGroup/Vulkan-Hpp) wrapper. It makes the initialization and boilerplate less of a hassle, and it includes proper C++ classes and <Hover term="RAII" client:visible />. At least C++17 is required to use Vulkan-Hpp, so we'll be using exactly that for maximum compatibility and to avoid niche C++20 functions (that the official Vulkan guide introduces...). Vulkan-Hpp is part of the [LunarG Vulkan SDK](https://www.lunarg.com/vulkan-sdk/) since version 1.0.24.
+
+For our build system, I went with [CMake](https://cmake.org/). I know, it's the devil, but it's still the best cross-platform solution we have. Don't worry, I'll provide a coherent `CMakeLists.txt` file in the next chapter that works on multiple systems, and I'll note if you have to change anything.
+
+Since Vulkan can't account for all windowing systems all at once, we need something that does. For this, we will be using [GLFW3](https://www.glfw.org/), the OpenGL windowing library. Even though it's originally made for OpenGL, Vulkan support has been added over the years. Alternatives exist, but we won't be exploring any. And I won't list any of them, to avoid confusing the reader.
+
+We also need something to do the math. For this, we'll be using [GLM](https://github.com/g-truc/glm) (Open**GL** **M**athematics). Again, don't let the name confuse you, as it works perfectly with Vulkan, too.
+
