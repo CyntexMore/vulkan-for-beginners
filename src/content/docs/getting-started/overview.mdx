@@ -17,9 +17,9 @@ Don't worry, you won't be setting anything up yet. That's for the next chapter, 
 
 Vulkan is both modern and outdated at the same time. By this, I mean that the original C API is... very ancient, but Vulkan itself is "modern" in a sense (features, etc.).
 
-There are a lot of ways to write Vulkan. There are bindings for a ton of languages, such as Zig, Rust, Golang, so on. But we are going to do this the "original way." In the future, this guide might include multi-lingual examples in the future to lean into that "Vulkan for everyone" agenda.
+There are a lot of ways to write Vulkan. There are bindings for a ton of languages, such as Zig, Rust, Golang, so on. But we are going to do this the "original way." In the future, this guide might include multi-lingual examples to lean into that "Vulkan for everyone" agenda.
 
-To somewhat mitigate this, we will be using the [Vulkan-Hpp](https://github.com/KhronosGroup/Vulkan-Hpp) wrapper. It makes the initialization and boilerplate less of a hassle, and it includes proper C++ classes and <Hover term="RAII" client:visible />. At least C++17 is required to use Vulkan-Hpp, so we'll be using exactly that for maximum compatibility and to avoid niche C++20 functions (that the official Vulkan guide introduces...). Vulkan-Hpp is part of the [LunarG Vulkan SDK](https://www.lunarg.com/vulkan-sdk/) since version 1.0.24.
+To somewhat mitigate this, we will be using the [Vulkan-Hpp](https://github.com/KhronosGroup/Vulkan-Hpp) wrapper. It makes the initialization and boilerplate less of a hassle, and it includes proper C++ classes and <Hover term="RAII" client:visible />. At least C++17 is required to use Vulkan-Hpp, but we will be using C++20 to make our lives easier.
 
 For our build system, I went with [CMake](https://cmake.org/). I know, it's the devil, but it's still the best cross-platform solution we have. Don't worry, I'll provide a coherent `CMakeLists.txt` file in the next chapter that works on multiple systems, and I'll note if you have to change anything.
 
